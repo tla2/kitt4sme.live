@@ -16,7 +16,7 @@ data:
   # Overrides the default of
   # - https://kitt4sme.collab-cloud.eu/argocd
   # argocd.webapp: http://192.168.64.20/argocd
-  https://github.com/tla2/kitt4sme.live
+  argocd.webapp: http://10.35.157.66/argocd
 
   # OIDC config. You only need this if you've configured Argo CD to do
   # SSO with Keycloak. The only thing you should change in the block
@@ -26,7 +26,8 @@ data:
   # Don't modify anything else unless you know what you're doing :-)
   argocd.sso: |
     name: Keycloak
-    issuer: http://192.168.64.20/auth/realms/master
+    # issuer: http://192.168.64.20/auth/realms/master
+    issuer: http://10.35.157.66/auth/realms/master
     clientID: argocd
     clientSecret: $oidc.keycloak.clientSecret
     requestedScopes: ["openid", "profile", "email", "groups"]
